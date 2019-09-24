@@ -2,15 +2,24 @@
     <div>
         <UsuarioRegistro1 />
         <h3> Seleção da disciplina dentro de uma turma </h3>
-
-        <b-container fluid>
+        <br/>
+        <b-container fluid >
             <b-row>
-                <b-col><strong>Turma</strong></b-col>
-                <b-col><strong>Disciplina</strong></b-col>                    
+                <b-col cols="1" ><strong>Id.</strong></b-col>
+                <b-col cols="1" ><strong>Turma</strong></b-col>
+                <b-col cols="4" ><strong>Disciplina</strong></b-col>                    
             </b-row>
-            <b-row v-for="(disciplina, id) in disciplinas" :key="idTurma">
-                <b-col> {{disciplina.descricaoTurma}} </b-col>
-                <b-col> {{disciplina.descricaoDisciplina}} </b-col>
+            <b-row class="espaco" v-for="(disciplina) in disciplinas" :key="disciplina.idTurma">
+                <b-col cols="1"> {{disciplina.idTurma}} </b-col>
+                <b-col cols="1"> {{disciplina.descricaoTurma}} </b-col>
+                <b-col cols="4"> {{disciplina.descricaoDisciplina}} </b-col>
+
+                <!-- <b-button pill variant="outline-primary" sucesso mar >Matricular</b-button> -->
+
+           
+
+
+
             </b-row>
         </b-container>
 
@@ -39,7 +48,6 @@ export default {
                 {idTurma: 6, descricaoTurma: 'OFERTA 3', idDisciplina: 2, descricaoDisciplina: "Arquitetura de computação em nuvens"},
                 {idTurma: 7, descricaoTurma: 'OFERTA 4', idDisciplina: 3, descricaoDisciplina: "Arquitetura de backend e microsserviços"},
                 {idTurma: 8, descricaoTurma: 'OFERTA 4', idDisciplina: 4, descricaoDisciplina: "Arquitetura descentralizadas e blockchain"}
-
             ]
         }
     },
@@ -50,11 +58,17 @@ export default {
         },
         irParaProximo() {
             this.$router.push({ name: 'comp2' })
-        }
+        },
+
+      
     }
 }
 </script>
 
 <style>
+
+.espaco {
+  padding-bottom: 5px;
+}
 
 </style>
